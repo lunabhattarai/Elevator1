@@ -73,6 +73,16 @@ namespace Elevator1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap alarm {
+            get {
+                object obj = ResourceManager.GetObject("alarm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap door2 {
             get {
                 object obj = ResourceManager.GetObject("door2", resourceCulture);
@@ -173,6 +183,46 @@ namespace Elevator1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap green_led_traffic_signal_500x500 {
+            get {
+                object obj = ResourceManager.GetObject("green-led-traffic-signal-500x500", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap green_led_traffic_signal_500x5001 {
+            get {
+                object obj = ResourceManager.GetObject("green-led-traffic-signal-500x5001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap green_led_traffic_signal_500x5002 {
+            get {
+                object obj = ResourceManager.GetObject("green-led-traffic-signal-500x5002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap green_led_traffic_signal_500x5003 {
+            get {
+                object obj = ResourceManager.GetObject("green-led-traffic-signal-500x5003", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image1 {
             get {
                 object obj = ResourceManager.GetObject("image1", resourceCulture);
@@ -196,6 +246,16 @@ namespace Elevator1.Properties {
         internal static System.Drawing.Bitmap images__1_1 {
             get {
                 object obj = ResourceManager.GetObject("images (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__1_2 {
+            get {
+                object obj = ResourceManager.GetObject("images (1)2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

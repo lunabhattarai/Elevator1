@@ -1,5 +1,6 @@
 using System.Data;
 using System.Data.SqlClient;
+using lift___sir;
 
 
 
@@ -8,6 +9,7 @@ namespace Elevator1
 {
     public partial class Form1 : Form
     {
+        private readonly EmergencyAlarm _emergencyAlarm;
         bool isMovingUp = false;
         bool isMovingDown = false;
         int liftSpeed = 5;
@@ -15,8 +17,9 @@ namespace Elevator1
         bool isOpening = false;
         int doorSpeed = 5;
         int doorMaxOpenWidth;
+        string alarmSoundPath = @"C:\Users\LENOVO\Downloads\mixkit-alert-alarm-1005.wav";
 
-        
+
         DataTable dt = new DataTable();
         DBContext db = new DBContext();
         //private Lift elevator = new ILift();
@@ -24,6 +27,7 @@ namespace Elevator1
         public Form1()
         {
             InitializeComponent();
+            _emergencyAlarm = new EmergencyAlarm(alarmSoundPath);
             doorMaxOpenWidth = mainElevator.Width / 2 + 110;
 
             dataGridViewLogs.ColumnCount = 2;
@@ -212,6 +216,20 @@ namespace Elevator1
         {
             db.DeleteLogFromDB(dt);
             dataGridViewLogs.Rows.Clear();
+        }
+
+
+        private void EmergencyAlarm_Click(object sender, EventArgs e)
+        {
+            if (!_emergencyAlarm.IsActive)
+            {
+                _emergencyAlarm.Activate();
+            }
+            else
+            {
+                _emergencyAlarm.Deactivate();
+            }
+
         }
     }
 }
