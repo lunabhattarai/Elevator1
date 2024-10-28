@@ -35,16 +35,6 @@ namespace lift___sir
 
         }
 
-        public Lift(PictureBox mainElevetor, Button button_up, Button button_down, int height, int liftSpeed, Timer liftTimer, Timer liftTimerDown)
-        {
-            MainElevetor = mainElevetor;
-            button_up = button_up;
-            button_down = button_down;
-            this.height = height;
-            LiftSpeed = liftSpeed;
-            LiftTimer = liftTimer;
-            LiftTimerDown = liftTimerDown;
-        }
 
         public void SetState(ILiftState state)
         {

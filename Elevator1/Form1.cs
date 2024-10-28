@@ -23,6 +23,10 @@ namespace Elevator1
         DataTable dt = new DataTable();
         DBContext db = new DBContext();
         //private Lift elevator = new ILift();
+        int maxLiftHeight = 100;
+        bool isWaitingForMove;
+        bool moveUpAfterClose;
+        bool moveDownAfterClose;
 
         public Form1()
         {
@@ -63,7 +67,11 @@ namespace Elevator1
 
             button_g.Enabled = false;
             logEvents("Lift JadaiCha");
+            btn_color1.BackColor = Color.Green;
+            btn_colorG.BackColor = Color.Red;
 
+            btnG2.BackColor = Color.Green;
+            btnG1.BackColor = Color.Red;
 
         }
         private void button_g_Click(object sender, EventArgs e)
@@ -75,7 +83,20 @@ namespace Elevator1
             button_up.Enabled = false;
             logEvents("Lift Jhardai Cha");
 
+            btn_colorG.BackColor = Color.Green;
+            btn_color1.BackColor = Color.Red;
+
+            btnG1.BackColor = Color.Green;
+            btnG2.BackColor = Color.Red;
+
+
         }
+
+
+
+
+
+
 
         private void btn_Open_Click(object sender, EventArgs e)
         {
@@ -141,7 +162,7 @@ namespace Elevator1
             {
                 if (isOpening)
                 {
-                    if (doorleft_G.Left > doorMaxOpenWidth / 2)
+                    if (doorleft_G.Left > doorMaxOpenWidth /2+80)
                     {
                         doorleft_G.Left -= doorSpeed;
                         doorright_G.Left += doorSpeed;
@@ -169,11 +190,28 @@ namespace Elevator1
                     }
                 }
             }
+
+            //if(isWaitingForMove)
+            //{
+            //    isWaitingForMove = false;
+            //    if(moveUpAfterClose)
+            //    {
+            //        StartMovingUp();
+            //        moveUpAfterClose = false;
+            //    }
+            //    else
+            //    if(moveDownAfterClose)
+            //    {
+            //        StartMovingDown();
+            //        moveUpAfterClose= false;
+
+            //    }
+            //}
             else
             {
                 if (isOpening)
                 {
-                    if (doorleft1.Left > mainElevator.Width / 2)
+                    if (doorleft1.Left > mainElevator.Width / 2+60)
                     {
                         doorleft1.Left -= doorSpeed;
                         doorright1.Left += doorSpeed;
@@ -207,10 +245,21 @@ namespace Elevator1
 
         }
 
+
         private void doorleft_G_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
