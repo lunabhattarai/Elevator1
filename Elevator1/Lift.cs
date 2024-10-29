@@ -7,33 +7,31 @@ using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;//new code
 namespace lift___sir
 {
-    internal class Lift
+    internal class lift
     {
         public ILiftState _CurrentState;
 
         public PictureBox MainElevetor;
-        public Button button_up;
-        public Button button_down;
-        public int FormSize;
+        public Button Button_up;
+        public Button Button_down;
+       
         public int LiftSpeed;
         public Timer LiftTimer;
-        public Timer LiftTimerDown;
-        private int height;
+        public Timer DoorTimer;
+        public int FormSize;
 
-        public Lift(PictureBox mainElevetor, Button button_up, Button button_down, int formSize, int liftSpeed, System.Windows.Forms.Timer liftTimer1, Timer liftTimer, Timer liftTimerDown)
+        public lift(PictureBox mainElevator, Button button_up, Button button_down, int formSize, int liftspeed, Timer lifttimer, Timer doorTimer)
         {
-            MainElevetor = mainElevetor;
-            button_up = button_up;
-            button_down = button_down;
+            MainElevetor = mainElevator;
+            Button_up = button_up;
+            Button_down = button_down;
             FormSize = formSize;
-            LiftSpeed = liftSpeed;
-            LiftTimer = liftTimer;
-            LiftTimerDown = liftTimerDown;
-            _CurrentState = new IdleState();
-
-
+            LiftSpeed = liftspeed;
+            LiftTimer = lifttimer;
+            DoorTimer = doorTimer;
 
         }
+
 
 
         public void SetState(ILiftState state)

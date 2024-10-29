@@ -46,14 +46,13 @@
             btn_color1 = new Button();
             btn_colorG = new Button();
             EmergencyAlarm = new Button();
-            liftTimerDown = new System.Windows.Forms.Timer(components);
-            greenlight1 = new PictureBox();
             button1 = new Button();
             textBox1 = new TextBox();
             btnG2 = new Button();
             btnG1 = new Button();
-            liftTimerUp = new System.Windows.Forms.Timer(components);
-            greenlightG = new PictureBox();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)mainElevator).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorright_G).BeginInit();
@@ -61,17 +60,15 @@
             ((System.ComponentModel.ISupportInitialize)doorleft1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorright1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLogs).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)greenlight1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)greenlightG).BeginInit();
             SuspendLayout();
             // 
             // mainElevator
             // 
             mainElevator.BackgroundImage = Properties.Resources.opendoor1;
             mainElevator.BackgroundImageLayout = ImageLayout.Stretch;
-            mainElevator.Location = new Point(262, 341);
+            mainElevator.Location = new Point(262, 336);
             mainElevator.Name = "mainElevator";
-            mainElevator.Size = new Size(285, 238);
+            mainElevator.Size = new Size(285, 225);
             mainElevator.TabIndex = 0;
             mainElevator.TabStop = false;
             // 
@@ -141,7 +138,7 @@
             doorright_G.BackColor = SystemColors.ActiveBorder;
             doorright_G.BackgroundImage = Properties.Resources.leftdoor12;
             doorright_G.BackgroundImageLayout = ImageLayout.Stretch;
-            doorright_G.Location = new Point(404, 341);
+            doorright_G.Location = new Point(404, 323);
             doorright_G.Name = "doorright_G";
             doorright_G.Size = new Size(143, 238);
             doorright_G.TabIndex = 7;
@@ -152,7 +149,7 @@
             doorleft_G.BackColor = SystemColors.ControlDarkDark;
             doorleft_G.BackgroundImage = Properties.Resources.leftdoor3;
             doorleft_G.BackgroundImageLayout = ImageLayout.Stretch;
-            doorleft_G.Location = new Point(262, 341);
+            doorleft_G.Location = new Point(262, 323);
             doorleft_G.Name = "doorleft_G";
             doorleft_G.Size = new Size(149, 238);
             doorleft_G.TabIndex = 8;
@@ -220,7 +217,7 @@
             // btn_colorG
             // 
             btn_colorG.BackColor = SystemColors.ActiveCaptionText;
-            btn_colorG.Location = new Point(389, 308);
+            btn_colorG.Location = new Point(389, 297);
             btn_colorG.Name = "btn_colorG";
             btn_colorG.Size = new Size(37, 20);
             btn_colorG.TabIndex = 15;
@@ -236,16 +233,6 @@
             EmergencyAlarm.TabIndex = 16;
             EmergencyAlarm.UseVisualStyleBackColor = true;
             EmergencyAlarm.Click += EmergencyAlarm_Click;
-            // 
-            // greenlight1
-            // 
-            greenlight1.BackgroundImage = Properties.Resources.green_led_traffic_signal_500x5004;
-            greenlight1.BackgroundImageLayout = ImageLayout.Stretch;
-            greenlight1.Location = new Point(651, 80);
-            greenlight1.Name = "greenlight1";
-            greenlight1.Size = new Size(72, 72);
-            greenlight1.TabIndex = 17;
-            greenlight1.TabStop = false;
             // 
             // button1
             // 
@@ -273,7 +260,7 @@
             btnG2.ForeColor = SystemColors.ActiveCaptionText;
             btnG2.Location = new Point(553, 175);
             btnG2.Name = "btnG2";
-            btnG2.Size = new Size(23, 27);
+            btnG2.Size = new Size(31, 27);
             btnG2.TabIndex = 20;
             btnG2.Text = "1";
             btnG2.UseVisualStyleBackColor = false;
@@ -284,33 +271,54 @@
             btnG1.ForeColor = SystemColors.ActiveCaptionText;
             btnG1.Location = new Point(553, 403);
             btnG1.Name = "btnG1";
-            btnG1.Size = new Size(23, 27);
+            btnG1.Size = new Size(31, 27);
             btnG1.TabIndex = 21;
             btnG1.Text = "1";
             btnG1.UseVisualStyleBackColor = false;
             // 
-            // greenlightG
+            // button2
             // 
-            greenlightG.BackgroundImage = Properties.Resources.green_led_traffic_signal_500x500q1;
-            greenlightG.BackgroundImageLayout = ImageLayout.Stretch;
-            greenlightG.Location = new Point(651, 150);
-            greenlightG.Name = "greenlightG";
-            greenlightG.Size = new Size(72, 70);
-            greenlightG.TabIndex = 22;
-            greenlightG.TabStop = false;
+            button2.BackgroundImage = Properties.Resources.download21;
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.Location = new Point(553, 144);
+            button2.Name = "button2";
+            button2.Size = new Size(31, 29);
+            button2.TabIndex = 22;
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.BackgroundImage = Properties.Resources.download11;
+            button3.BackgroundImageLayout = ImageLayout.Stretch;
+            button3.Location = new Point(553, 368);
+            button3.Name = "button3";
+            button3.Size = new Size(31, 29);
+            button3.TabIndex = 23;
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.BackgroundImage = Properties.Resources.images1;
+            button4.BackgroundImageLayout = ImageLayout.Stretch;
+            button4.Location = new Point(630, 90);
+            button4.Name = "button4";
+            button4.Size = new Size(115, 136);
+            button4.TabIndex = 24;
+            button4.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.images__2_2;
-            ClientSize = new Size(1142, 562);
-            Controls.Add(greenlightG);
+            ClientSize = new Size(1142, 560);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(button2);
             Controls.Add(btnG1);
             Controls.Add(btnG2);
             Controls.Add(textBox1);
             Controls.Add(button1);
-            Controls.Add(greenlight1);
             Controls.Add(EmergencyAlarm);
             Controls.Add(btn_colorG);
             Controls.Add(btn_color1);
@@ -335,8 +343,6 @@
             ((System.ComponentModel.ISupportInitialize)doorleft1).EndInit();
             ((System.ComponentModel.ISupportInitialize)doorright1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLogs).EndInit();
-            ((System.ComponentModel.ISupportInitialize)greenlight1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)greenlightG).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -360,13 +366,12 @@
         private Button btn_color1;
         private Button btn_colorG;
         private Button EmergencyAlarm;
-        private System.Windows.Forms.Timer liftTimerDown;
-        private PictureBox greenlight1;
         private Button button1;
         private TextBox textBox1;
         private Button btnG2;
         private Button btnG1;
-        private System.Windows.Forms.Timer liftTimerUp;
-        private PictureBox greenlightG;
+        private Button button2;
+        private Button button3;
+        private Button button4;
     }
 }

@@ -19,10 +19,9 @@ namespace Elevator1
         int doorMaxOpenWidth;
         string alarmSoundPath = @"C:\Users\LENOVO\Downloads\mixkit-alert-alarm-1005.wav";
 
-
+        private lift lift;
         DataTable dt = new DataTable();
         DBContext db = new DBContext();
-        //private Lift elevator = new ILift();
         int maxLiftHeight = 100;
         bool isWaitingForMove;
         bool moveUpAfterClose;
@@ -31,6 +30,7 @@ namespace Elevator1
         public Form1()
         {
             InitializeComponent();
+            lift = new lift(mainElevator, button_g, button_up, this.ClientSize.Height, liftSpeed, lifttimer, doorTimer);
             _emergencyAlarm = new EmergencyAlarm(alarmSoundPath);
             doorMaxOpenWidth = mainElevator.Width / 2 + 110;
 
@@ -61,23 +61,123 @@ namespace Elevator1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (isOpening) {
+
+                isOpening = false;
+                isClosing = true;
+                doorTimer.Start();
+                btn_open.Enabled = false;
+                doorTimer.Tick += onDoorClose;
+                logEvents("Lift JadaiCha");
+            }
+            else
+            {
+                MoveLiftup();
+            }
+            //isMovingUp = true;
+            //isMovingDown = false;
+            //lift.SetState(new MovingUpState);
+
+            //lifttimer.Start();
+
+            //button_g.Enabled = false;
+            //logEvents("Lift JadaiCha");
+            //btn_color1.BackColor = Color.Green;
+            //btn_colorG.BackColor = Color.Red;
+
+            //btnG2.BackColor = Color.Green;
+            //btnG1.BackColor = Color.Red;
+
+        }
+
+        private void onDoorClose(object sender, EventArgs e)
+        {
+            if (!isOpening && !isClosing)
+            {
+                MoveLiftup();
+                doorTimer.Tick += onDoorClose;
+            }
+            else
+            {
+                MoveLiftup();
+
+            }
+
+        }
+
+        private void MoveLiftup()
+        {
             isMovingUp = true;
             isMovingDown = false;
+            lift.SetState(new MovingUpState());
+
             lifttimer.Start();
 
             button_g.Enabled = false;
-            logEvents("Lift JadaiCha");
+
             btn_color1.BackColor = Color.Green;
             btn_colorG.BackColor = Color.Red;
 
             btnG2.BackColor = Color.Green;
             btnG1.BackColor = Color.Red;
 
+            if (isMovingUp)
+            {
+                button_up.BackColor = Color.LightGreen;
+                if (mainElevator.Top > 0)
+                {
+                    mainElevator.Top -= liftSpeed;
+
+                }
+                else
+                {
+                    lifttimer.Stop();
+                    mainElevator.Top = 0;
+                    button_g.Enabled = true;
+                }
+            }
+
+
+
         }
+
+
         private void button_g_Click(object sender, EventArgs e)
+        {
+            //isMovingUp = false;
+            //isMovingDown = true;
+            //lift.SetState(new MovingDownState);
+            //lifttimer.Start();
+
+            //button_up.Enabled = false;
+            //logEvents("Lift Jhardai Cha");
+
+            //btn_colorG.BackColor = Color.Green;
+            //btn_color1.BackColor = Color.Red;
+
+            //btnG1.BackColor = Color.Green;
+            //btnG2.BackColor = Color.Red;
+
+            if (isOpening)
+            {
+                isOpening = false;
+                isClosing = true;
+                doorTimer.Start();
+                btn_open.Enabled = false;
+                doorTimer.Tick += onDoorClose;
+            }
+            else
+            {
+                MoveLiftDown();
+            }
+
+
+        }
+        private void MoveLiftDown()
         {
             isMovingUp = false;
             isMovingDown = true;
+            lift.SetState(new MovingDownState());
             lifttimer.Start();
 
             button_up.Enabled = false;
@@ -89,13 +189,24 @@ namespace Elevator1
             btnG1.BackColor = Color.Green;
             btnG2.BackColor = Color.Red;
 
+            if (isMovingDown)
+            {
+                button_g.BackColor = Color.LightGreen;
+                button_up.BackColor = Color.LightGreen;
+                if (mainElevator.Bottom < this.ClientSize.Height)
+                {
+                    mainElevator.Top += liftSpeed;
+
+                }
+                else
+                {
+                    lifttimer.Stop();
+
+                    button_up.Enabled = true;
+                }
+            }
 
         }
-
-
-
-
-
 
 
         private void btn_Open_Click(object sender, EventArgs e)
@@ -120,37 +231,40 @@ namespace Elevator1
 
         private void lifttimer_Tick(object sender, EventArgs e)
         {
-            if (isMovingUp)
-            {
-                button_up.BackColor = Color.LightGreen;
-                if (mainElevator.Top > 0)
-                {
-                    mainElevator.Top -= liftSpeed;
+            lift.MovingUp();
+            lift.MovingDown();
+            //if (isMovingUp)
+            //{
+            //    button_up.BackColor = Color.LightGreen;
+            //    if (mainElevator.Top > 0)
+            //    {
+            //        mainElevator.Top -= liftSpeed;
 
-                }
-                else
-                {
-                    lifttimer.Stop();
-                    mainElevator.Top = 0;
-                    button_g.Enabled = true;
-                }
-            }
-            if (isMovingDown)
-            {
-                button_g.BackColor = Color.LightGreen;
-                button_up.BackColor = Color.LightGreen;
-                if (mainElevator.Bottom < this.ClientSize.Height)
-                {
-                    mainElevator.Top += liftSpeed;
+            //    }
+            //    else
+            //    {
+            //        lifttimer.Stop();
+            //        mainElevator.Top = 0;
+            //        button_g.Enabled = true;
+            //    }
+            //}
+            //if (isMovingDown)
+            //{
+            //    button_g.BackColor = Color.LightGreen;
+            //    button_up.BackColor = Color.LightGreen;
+            //    if (mainElevator.Bottom < this.ClientSize.Height)
+            //    {
+            //        mainElevator.Top += liftSpeed;
 
-                }
-                else
-                {
-                    lifttimer.Stop();
+            //    }
+            //    else
+            //    {
+            //        lifttimer.Stop();
 
-                    button_up.Enabled = true;
-                }
-            }
+            //        button_up.Enabled = true;
+            //    }
+            //}
+
 
 
         }
@@ -273,12 +387,16 @@ namespace Elevator1
             if (!_emergencyAlarm.IsActive)
             {
                 _emergencyAlarm.Activate();
+
+                logEvents("Alarm is on");
             }
             else
             {
                 _emergencyAlarm.Deactivate();
+                logEvents("Alarm is off");
             }
 
         }
     }
+
 }

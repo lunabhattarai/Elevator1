@@ -8,7 +8,7 @@ namespace lift___sir
 {
     internal class MovingDownState : ILiftState
     {
-        public void MovingDown(Lift lift)
+        public void MovingDown(lift lift)
         {
             if (lift.MainElevetor.Top == 0 || lift.MainElevetor.Bottom < lift.FormSize)
             {
@@ -19,14 +19,14 @@ namespace lift___sir
                 // Once it reaches the bottom, transition to StoppedState
                 lift.SetState(new IdleState());
                 lift.MainElevetor.Top = lift.FormSize - lift.MainElevetor.Height;
-                lift.button_up.BackColor = Color.White;
-                lift.LiftTimerDown.Stop();  // Stop the timer when it reaches the bottom
-                lift.button_up.Enabled = true;  // Re-enable the 1st floor button
-                lift.button_down.Enabled = true;  // Enable other controls
+                lift.Button_up.BackColor = Color.White;
+                lift.LiftTimer.Stop();  // Stop the timer when it reaches the bottom
+                lift.Button_up.Enabled = true;  // Re-enable the 1st floor button
+                lift.Button_down.Enabled = true;  // Enable other controls
             }
         }
 
-        public void MovingUp(Lift lift)
+        public void MovingUp(lift lift)
         {
             /* Do Nothing */
         }

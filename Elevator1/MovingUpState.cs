@@ -8,12 +8,12 @@ namespace lift___sir
 {
     internal class MovingUpState : ILiftState
     {
-        public void MovingDown(Lift lift)
+        public void MovingDown(lift lift)
         {
             /* Do Nothing */
         }
 
-        public void MovingUp(Lift lift)
+        public void MovingUp(lift lift)
         {
 
             if (lift.MainElevetor.Top > 0)
@@ -25,10 +25,10 @@ namespace lift___sir
                 // Once it reaches the top, transition to StoppedState
                 lift.SetState(new IdleState());
                 lift.MainElevetor.Top = 0;
-                lift.button_up.BackColor = Color.White;
+                lift.Button_up.BackColor = Color.White;
                 lift.LiftTimer.Stop();  // Stop the timer when it reaches the top
-                lift.button_down.Enabled = true;  // Re-enable the G button
-                lift.button_up.Enabled = true;  // Enable other controls
+                lift.Button_down.Enabled = true;  // Re-enable the G button
+                lift.Button_up.Enabled = true;  // Enable other controls
             }
         }
     }

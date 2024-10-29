@@ -9,7 +9,7 @@ namespace lift___sir
 {
     internal interface ILiftState
     {
-        void MovingUp(Lift lift);
-        void MovingDown(Lift lift);
+        void MovingUp(lift lift);
+        void MovingDown(lift lift);
     }
 }

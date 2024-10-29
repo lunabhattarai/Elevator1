@@ -8,12 +8,13 @@ namespace lift___sir
 {
     internal class IdleState : ILiftState
     {
-        public void MovingDown(Lift lift)
+        public void MovingDown(lift lift)
         {
+
             /* Do Nothing */
         }
 
-        public void MovingUp(Lift lift)
+        public void MovingUp(lift lift)
         {
             /* Do Nothing */
         }
