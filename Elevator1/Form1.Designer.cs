@@ -3,12 +3,12 @@
     partial class Form1
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,355 +23,261 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            mainElevator = new PictureBox();
-            pictureBox1 = new PictureBox();
-            button_up = new Button();
-            btn_Close = new Button();
-            btn_open = new Button();
-            button_g = new Button();
-            lifttimer = new System.Windows.Forms.Timer(components);
-            doorright_G = new PictureBox();
-            doorleft_G = new PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            gfloor = new PictureBox();
+            ffloor = new PictureBox();
+            pictureBox3 = new PictureBox();
+            doorleft2 = new PictureBox();
             doorleft1 = new PictureBox();
             doorright1 = new PictureBox();
-            doorTimer = new System.Windows.Forms.Timer(components);
-            dataGridViewLogs = new DataGridView();
-            ClearAll = new Button();
-            btn_color1 = new Button();
-            btn_colorG = new Button();
-            EmergencyAlarm = new Button();
-            button1 = new Button();
-            textBox1 = new TextBox();
-            btnG2 = new Button();
-            btnG1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            ((System.ComponentModel.ISupportInitialize)mainElevator).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)doorright_G).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)doorleft_G).BeginInit();
+            doorright2 = new PictureBox();
+            mainelevator = new PictureBox();
+            btnf = new Button();
+            btng = new Button();
+            btnopen = new Button();
+            btnclose = new Button();
+            btnfirst = new Button();
+            btnground = new Button();
+            lifttimer = new System.Windows.Forms.Timer(components);
+            timer2 = new System.Windows.Forms.Timer(components);
+            doortimer1 = new System.Windows.Forms.Timer(components);
+            doortimer2 = new System.Windows.Forms.Timer(components);
+            btnclear = new Button();
+            btnexit = new Button();
+            datagridviewlogs = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)gfloor).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ffloor).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)doorleft2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorleft1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doorright1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewLogs).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)doorright2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mainelevator).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)datagridviewlogs).BeginInit();
             SuspendLayout();
             // 
-            // mainElevator
+            // gfloor
             // 
-            mainElevator.BackgroundImage = Properties.Resources.opendoor1;
-            mainElevator.BackgroundImageLayout = ImageLayout.Stretch;
-            mainElevator.Location = new Point(262, 336);
-            mainElevator.Name = "mainElevator";
-            mainElevator.Size = new Size(285, 225);
-            mainElevator.TabIndex = 0;
-            mainElevator.TabStop = false;
+            gfloor.Location = new Point(286, 402);
+            gfloor.Name = "gfloor";
+            gfloor.Size = new Size(331, 273);
+            gfloor.TabIndex = 0;
+            gfloor.TabStop = false;
             // 
-            // pictureBox1
+            // ffloor
             // 
-            pictureBox1.BackColor = Color.Tan;
-            pictureBox1.BackgroundImage = Properties.Resources.wall;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(615, 59);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(140, 460);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            ffloor.Location = new Point(286, 12);
+            ffloor.Name = "ffloor";
+            ffloor.Size = new Size(330, 273);
+            ffloor.TabIndex = 1;
+            ffloor.TabStop = false;
             // 
-            // button_up
+            // pictureBox3
             // 
-            button_up.BackgroundImage = Properties.Resources.images__1_2;
-            button_up.BackgroundImageLayout = ImageLayout.Stretch;
-            button_up.ForeColor = SystemColors.AppWorkspace;
-            button_up.Location = new Point(659, 247);
-            button_up.Name = "button_up";
-            button_up.Size = new Size(48, 44);
-            button_up.TabIndex = 2;
-            button_up.UseVisualStyleBackColor = true;
-            button_up.Click += button1_Click;
+            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox3.Location = new Point(781, -1);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(206, 701);
+            pictureBox3.TabIndex = 2;
+            pictureBox3.TabStop = false;
             // 
-            // btn_Close
+            // doorleft2
             // 
-            btn_Close.BackgroundImage = Properties.Resources.download1;
-            btn_Close.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_Close.Location = new Point(701, 395);
-            btn_Close.Name = "btn_Close";
-            btn_Close.Size = new Size(44, 43);
-            btn_Close.TabIndex = 3;
-            btn_Close.UseVisualStyleBackColor = true;
-            btn_Close.Click += btn_Close_Click;
-            // 
-            // btn_open
-            // 
-            btn_open.BackgroundImage = Properties.Resources.download;
-            btn_open.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_open.Location = new Point(630, 395);
-            btn_open.Name = "btn_open";
-            btn_open.Size = new Size(49, 43);
-            btn_open.TabIndex = 4;
-            btn_open.UseVisualStyleBackColor = true;
-            btn_open.Click += btn_Open_Click;
-            // 
-            // button_g
-            // 
-            button_g.BackgroundImage = Properties.Resources.images__2_;
-            button_g.BackgroundImageLayout = ImageLayout.Stretch;
-            button_g.Location = new Point(659, 308);
-            button_g.Name = "button_g";
-            button_g.Size = new Size(48, 42);
-            button_g.TabIndex = 5;
-            button_g.UseVisualStyleBackColor = true;
-            button_g.Click += button_g_Click;
-            // 
-            // lifttimer
-            // 
-            lifttimer.Interval = 50;
-            lifttimer.Tick += lifttimer_Tick;
-            // 
-            // doorright_G
-            // 
-            doorright_G.BackColor = SystemColors.ActiveBorder;
-            doorright_G.BackgroundImage = Properties.Resources.leftdoor12;
-            doorright_G.BackgroundImageLayout = ImageLayout.Stretch;
-            doorright_G.Location = new Point(404, 323);
-            doorright_G.Name = "doorright_G";
-            doorright_G.Size = new Size(143, 238);
-            doorright_G.TabIndex = 7;
-            doorright_G.TabStop = false;
-            // 
-            // doorleft_G
-            // 
-            doorleft_G.BackColor = SystemColors.ControlDarkDark;
-            doorleft_G.BackgroundImage = Properties.Resources.leftdoor3;
-            doorleft_G.BackgroundImageLayout = ImageLayout.Stretch;
-            doorleft_G.Location = new Point(262, 323);
-            doorleft_G.Name = "doorleft_G";
-            doorleft_G.Size = new Size(149, 238);
-            doorleft_G.TabIndex = 8;
-            doorleft_G.TabStop = false;
-            doorleft_G.Click += doorleft_G_Click;
+            doorleft2.BackgroundImage = (Image)resources.GetObject("doorleft2.BackgroundImage");
+            doorleft2.BackgroundImageLayout = ImageLayout.Stretch;
+            doorleft2.Location = new Point(286, 402);
+            doorleft2.Name = "doorleft2";
+            doorleft2.Size = new Size(165, 273);
+            doorleft2.TabIndex = 3;
+            doorleft2.TabStop = false;
             // 
             // doorleft1
             // 
-            doorleft1.BackColor = SystemColors.AppWorkspace;
-            doorleft1.BackgroundImage = Properties.Resources.leftdoor4;
+            doorleft1.BackgroundImage = (Image)resources.GetObject("doorleft1.BackgroundImage");
             doorleft1.BackgroundImageLayout = ImageLayout.Stretch;
-            doorleft1.Location = new Point(262, 27);
+            doorleft1.Location = new Point(286, 12);
             doorleft1.Name = "doorleft1";
-            doorleft1.Size = new Size(149, 254);
-            doorleft1.TabIndex = 9;
+            doorleft1.Size = new Size(165, 273);
+            doorleft1.TabIndex = 4;
             doorleft1.TabStop = false;
             // 
             // doorright1
             // 
-            doorright1.BackColor = SystemColors.ControlDarkDark;
-            doorright1.BackgroundImage = Properties.Resources.leftdoor13;
+            doorright1.BackgroundImage = (Image)resources.GetObject("doorright1.BackgroundImage");
             doorright1.BackgroundImageLayout = ImageLayout.Stretch;
-            doorright1.Location = new Point(404, 27);
+            doorright1.Location = new Point(451, 12);
             doorright1.Name = "doorright1";
-            doorright1.Size = new Size(143, 254);
-            doorright1.TabIndex = 10;
+            doorright1.Size = new Size(165, 273);
+            doorright1.TabIndex = 5;
             doorright1.TabStop = false;
             // 
-            // doorTimer
+            // doorright2
             // 
-            doorTimer.Tick += doorTimer_Tick;
+            doorright2.BackgroundImage = (Image)resources.GetObject("doorright2.BackgroundImage");
+            doorright2.BackgroundImageLayout = ImageLayout.Stretch;
+            doorright2.Location = new Point(451, 402);
+            doorright2.Name = "doorright2";
+            doorright2.Size = new Size(165, 273);
+            doorright2.TabIndex = 6;
+            doorright2.TabStop = false;
             // 
-            // dataGridViewLogs
+            // mainelevator
             // 
-            dataGridViewLogs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewLogs.BackgroundColor = Color.Tan;
-            dataGridViewLogs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewLogs.Location = new Point(807, 123);
-            dataGridViewLogs.Name = "dataGridViewLogs";
-            dataGridViewLogs.RowHeadersWidth = 51;
-            dataGridViewLogs.Size = new Size(323, 353);
-            dataGridViewLogs.TabIndex = 11;
+            mainelevator.BackgroundImage = (Image)resources.GetObject("mainelevator.BackgroundImage");
+            mainelevator.BackgroundImageLayout = ImageLayout.Stretch;
+            mainelevator.Location = new Point(286, 402);
+            mainelevator.Name = "mainelevator";
+            mainelevator.Size = new Size(331, 273);
+            mainelevator.TabIndex = 7;
+            mainelevator.TabStop = false;
             // 
-            // ClearAll
+            // btnf
             // 
-            ClearAll.BackColor = SystemColors.MenuHighlight;
-            ClearAll.Location = new Point(978, 93);
-            ClearAll.Name = "ClearAll";
-            ClearAll.Size = new Size(77, 29);
-            ClearAll.TabIndex = 12;
-            ClearAll.Text = "Clear All";
-            ClearAll.UseVisualStyleBackColor = false;
-            ClearAll.Click += button1_Click_1;
+            btnf.Location = new Point(796, 291);
+            btnf.Name = "btnf";
+            btnf.Size = new Size(89, 88);
+            btnf.TabIndex = 8;
+            btnf.Text = "button1";
+            btnf.UseVisualStyleBackColor = true;
             // 
-            // btn_color1
+            // btng
             // 
-            btn_color1.BackColor = SystemColors.ActiveCaptionText;
-            btn_color1.ForeColor = SystemColors.ActiveCaptionText;
-            btn_color1.Location = new Point(389, 3);
-            btn_color1.Name = "btn_color1";
-            btn_color1.Size = new Size(37, 18);
-            btn_color1.TabIndex = 14;
-            btn_color1.UseVisualStyleBackColor = false;
+            btng.Location = new Point(891, 291);
+            btng.Name = "btng";
+            btng.Size = new Size(89, 88);
+            btng.TabIndex = 9;
+            btng.Text = "button2";
+            btng.UseVisualStyleBackColor = true;
             // 
-            // btn_colorG
+            // btnopen
             // 
-            btn_colorG.BackColor = SystemColors.ActiveCaptionText;
-            btn_colorG.Location = new Point(389, 297);
-            btn_colorG.Name = "btn_colorG";
-            btn_colorG.Size = new Size(37, 20);
-            btn_colorG.TabIndex = 15;
-            btn_colorG.UseVisualStyleBackColor = false;
+            btnopen.Location = new Point(791, 420);
+            btnopen.Name = "btnopen";
+            btnopen.Size = new Size(89, 88);
+            btnopen.TabIndex = 10;
+            btnopen.Text = "button3";
+            btnopen.UseVisualStyleBackColor = true;
             // 
-            // EmergencyAlarm
+            // btnclose
             // 
-            EmergencyAlarm.BackgroundImage = Properties.Resources.alarm;
-            EmergencyAlarm.BackgroundImageLayout = ImageLayout.Stretch;
-            EmergencyAlarm.Location = new Point(676, 461);
-            EmergencyAlarm.Name = "EmergencyAlarm";
-            EmergencyAlarm.Size = new Size(31, 29);
-            EmergencyAlarm.TabIndex = 16;
-            EmergencyAlarm.UseVisualStyleBackColor = true;
-            EmergencyAlarm.Click += EmergencyAlarm_Click;
+            btnclose.Location = new Point(891, 420);
+            btnclose.Name = "btnclose";
+            btnclose.Size = new Size(84, 88);
+            btnclose.TabIndex = 11;
+            btnclose.Text = "button4";
+            btnclose.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnfirst
             // 
-            button1.BackColor = SystemColors.Highlight;
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(1061, 93);
-            button1.Name = "button1";
-            button1.Size = new Size(69, 29);
-            button1.TabIndex = 18;
-            button1.Text = "Exit";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += btn_Exit_Click;
+            btnfirst.Location = new Point(643, 261);
+            btnfirst.Name = "btnfirst";
+            btnfirst.Size = new Size(94, 29);
+            btnfirst.TabIndex = 12;
+            btnfirst.Text = "button1";
+            btnfirst.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // btnground
             // 
-            textBox1.Location = new Point(807, 90);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(165, 27);
-            textBox1.TabIndex = 19;
-            textBox1.Text = "Log History of Elevator";
+            btnground.Location = new Point(649, 329);
+            btnground.Name = "btnground";
+            btnground.Size = new Size(94, 29);
+            btnground.TabIndex = 13;
+            btnground.Text = "button2";
+            btnground.UseVisualStyleBackColor = true;
             // 
-            // btnG2
+            // btnclear
             // 
-            btnG2.BackColor = Color.ForestGreen;
-            btnG2.ForeColor = SystemColors.ActiveCaptionText;
-            btnG2.Location = new Point(553, 175);
-            btnG2.Name = "btnG2";
-            btnG2.Size = new Size(31, 27);
-            btnG2.TabIndex = 20;
-            btnG2.Text = "1";
-            btnG2.UseVisualStyleBackColor = false;
+            btnclear.Location = new Point(1084, 12);
+            btnclear.Name = "btnclear";
+            btnclear.Size = new Size(94, 29);
+            btnclear.TabIndex = 14;
+            btnclear.Text = "button1";
+            btnclear.UseVisualStyleBackColor = true;
             // 
-            // btnG1
+            // btnexit
             // 
-            btnG1.BackColor = Color.ForestGreen;
-            btnG1.ForeColor = SystemColors.ActiveCaptionText;
-            btnG1.Location = new Point(553, 403);
-            btnG1.Name = "btnG1";
-            btnG1.Size = new Size(31, 27);
-            btnG1.TabIndex = 21;
-            btnG1.Text = "1";
-            btnG1.UseVisualStyleBackColor = false;
+            btnexit.BackgroundImageLayout = ImageLayout.None;
+            btnexit.Location = new Point(1194, 12);
+            btnexit.Name = "btnexit";
+            btnexit.Size = new Size(94, 29);
+            btnexit.TabIndex = 15;
+            btnexit.Text = "button2";
+            btnexit.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // datagridviewlogs
             // 
-            button2.BackgroundImage = Properties.Resources.download21;
-            button2.BackgroundImageLayout = ImageLayout.Stretch;
-            button2.Location = new Point(553, 144);
-            button2.Name = "button2";
-            button2.Size = new Size(31, 29);
-            button2.TabIndex = 22;
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.BackgroundImage = Properties.Resources.download11;
-            button3.BackgroundImageLayout = ImageLayout.Stretch;
-            button3.Location = new Point(553, 368);
-            button3.Name = "button3";
-            button3.Size = new Size(31, 29);
-            button3.TabIndex = 23;
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.BackgroundImage = Properties.Resources.images1;
-            button4.BackgroundImageLayout = ImageLayout.Stretch;
-            button4.Location = new Point(630, 90);
-            button4.Name = "button4";
-            button4.Size = new Size(115, 136);
-            button4.TabIndex = 24;
-            button4.UseVisualStyleBackColor = true;
+            datagridviewlogs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            datagridviewlogs.Location = new Point(1034, 59);
+            datagridviewlogs.Name = "datagridviewlogs";
+            datagridviewlogs.RowHeadersWidth = 51;
+            datagridviewlogs.Size = new Size(346, 616);
+            datagridviewlogs.TabIndex = 16;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.images__2_2;
-            ClientSize = new Size(1142, 560);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(btnG1);
-            Controls.Add(btnG2);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
-            Controls.Add(EmergencyAlarm);
-            Controls.Add(btn_colorG);
-            Controls.Add(btn_color1);
-            Controls.Add(ClearAll);
-            Controls.Add(dataGridViewLogs);
+            ClientSize = new Size(1377, 687);
+            Controls.Add(datagridviewlogs);
+            Controls.Add(btnexit);
+            Controls.Add(btnclear);
+            Controls.Add(btnground);
+            Controls.Add(btnfirst);
+            Controls.Add(btnclose);
+            Controls.Add(btnopen);
+            Controls.Add(btng);
+            Controls.Add(btnf);
+            Controls.Add(doorright2);
             Controls.Add(doorright1);
             Controls.Add(doorleft1);
-            Controls.Add(doorleft_G);
-            Controls.Add(doorright_G);
-            Controls.Add(button_g);
-            Controls.Add(btn_open);
-            Controls.Add(btn_Close);
-            Controls.Add(button_up);
-            Controls.Add(pictureBox1);
-            Controls.Add(mainElevator);
+            Controls.Add(doorleft2);
+            Controls.Add(pictureBox3);
+            Controls.Add(ffloor);
+            Controls.Add(mainelevator);
+            Controls.Add(gfloor);
             Name = "Form1";
-            Load += From1_Load;
-            ((System.ComponentModel.ISupportInitialize)mainElevator).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)doorright_G).EndInit();
-            ((System.ComponentModel.ISupportInitialize)doorleft_G).EndInit();
+            Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)gfloor).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ffloor).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)doorleft2).EndInit();
             ((System.ComponentModel.ISupportInitialize)doorleft1).EndInit();
             ((System.ComponentModel.ISupportInitialize)doorright1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewLogs).EndInit();
+            ((System.ComponentModel.ISupportInitialize)doorright2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mainelevator).EndInit();
+            ((System.ComponentModel.ISupportInitialize)datagridviewlogs).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private PictureBox mainElevator;
-        private PictureBox pictureBox1;
-        private Button button_up;
-        private Button btn_Close;
-        private Button btn_open;
-        private Button button_g;
-        private System.Windows.Forms.Timer lifttimer;
-        private PictureBox doorright_G;
-        private PictureBox doorleft_G;
+        private PictureBox gfloor;
+        private PictureBox ffloor;
+        private PictureBox pictureBox3;
+        private PictureBox doorleft2;
         private PictureBox doorleft1;
         private PictureBox doorright1;
-        private System.Windows.Forms.Timer doorTimer;
-        private DataGridView dataGridViewLogs;
-        private Button ClearAll;
-        private Button btn_color1;
-        private Button btn_colorG;
-        private Button EmergencyAlarm;
-        private Button button1;
-        private TextBox textBox1;
-        private Button btnG2;
-        private Button btnG1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private PictureBox doorright2;
+        private PictureBox mainelevator;
+        private Button btnf;
+        private Button btng;
+        private Button btnopen;
+        private Button btnclose;
+        private Button btnfirst;
+        private Button btnground;
+        private System.Windows.Forms.Timer lifttimer;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer doortimer1;
+        private System.Windows.Forms.Timer doortimer2;
+        private Button btnclear;
+        private Button btnexit;
+        private DataGridView datagridviewlogs;
     }
 }

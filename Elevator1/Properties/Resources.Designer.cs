@@ -63,6 +63,26 @@ namespace Elevator1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _0bb8ccaa2be7ef096355ca1c19129321 {
+            get {
+                object obj = ResourceManager.GetObject("0bb8ccaa2be7ef096355ca1c19129321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _32af8d04bdda2473fe83c0cc928d534f {
+            get {
+                object obj = ResourceManager.GetObject("32af8d04bdda2473fe83c0cc928d534f", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _80951a22e4cabfeb4e29a7b0ec810f093ed8d2a0_1_ {
             get {
                 object obj = ResourceManager.GetObject("80951a22e4cabfeb4e29a7b0ec810f093ed8d2a0[1]", resourceCulture);
@@ -136,6 +156,16 @@ namespace Elevator1.Properties {
         internal static System.Drawing.Bitmap arrows_1__removebg_preview11 {
             get {
                 object obj = ResourceManager.GetObject("arrows_1_-removebg-preview11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap b4d8e63e753958131972ece5f165e064 {
+            get {
+                object obj = ResourceManager.GetObject("b4d8e63e753958131972ece5f165e064", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -616,6 +646,16 @@ namespace Elevator1.Properties {
         internal static System.Drawing.Bitmap leftdoor13 {
             get {
                 object obj = ResourceManager.GetObject("leftdoor13", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap leftdoor14 {
+            get {
+                object obj = ResourceManager.GetObject("leftdoor14", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

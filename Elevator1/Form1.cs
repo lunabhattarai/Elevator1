@@ -1,402 +1,167 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using lift___sir;
-
-
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+using System.Xml.Linq;
+using System.Timers;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using System.Reflection.Emit;
 
 namespace Elevator1
-
 {
     public partial class Form1 : Form
     {
-        private readonly EmergencyAlarm _emergencyAlarm;
-        bool isMovingUp = false;
-        bool isMovingDown = false;
-        int liftSpeed = 5;
-        bool isClosing = false;
-        bool isOpening = false;
-        int doorSpeed = 5;
-        int doorMaxOpenWidth;
-        string alarmSoundPath = @"C:\Users\LENOVO\Downloads\mixkit-alert-alarm-1005.wav";
+        bool movingup = false;
+        bool movingdown = false;
+        bool opening1 = false;
+        bool closing1 = false;
+        bool opening2 = false;
+        bool closing2 = false;
+        bool doorsclosed = true;
+        int liftspeed = 5;
+        int doorspeed = 5;
+        int doormaxopenwidth;
 
-        private lift lift;
+        private Lift lift;
         DataTable dt = new DataTable();
-        DBContext db = new DBContext();
-        int maxLiftHeight = 100;
-        bool isWaitingForMove;
-        bool moveUpAfterClose;
-        bool moveDownAfterClose;
+        DBContext dbContext = new DBContext();
 
         public Form1()
         {
             InitializeComponent();
-            lift = new lift(mainElevator, button_g, button_up, this.ClientSize.Height, liftSpeed, lifttimer, doorTimer);
-            _emergencyAlarm = new EmergencyAlarm(alarmSoundPath);
-            doorMaxOpenWidth = mainElevator.Width / 2 + 110;
 
-            dataGridViewLogs.ColumnCount = 2;
-            dataGridViewLogs.Columns[0].Name = "Time";
-            dataGridViewLogs.Columns[1].Name = "Events";
+            lift = new Lift(
+            mainelevator,
+            btnf,
+            btng,
+            btnopen,
+            btnclose,
+             lifttimer,
+             doortimer1,
+             doortimer2,
+             btnfirst,
+             btnground,
+             doorleft1,
+             doorleft2,
+             doorright1,
+             doorright2,
+             datagridviewlogs,
+             btnclear,
+             btnexit,
+             gfloor,
+             ffloor
+             );
 
-            dt.Columns.Add("Logtime");
-            dt.Columns.Add("EventDescription");
 
+            doormaxopenwidth = mainelevator.Width;
+
+            datagridviewlogs.ColumnCount = 2;
+            datagridviewlogs.Columns[0].Name = "Time";
+            datagridviewlogs.Columns[1].Name = "Events";
+
+            datagridviewlogs.Columns[0].Width = 100;
+            datagridviewlogs.Columns[1].Width = 203;
+
+            dt.Columns.Add("Time");
+            dt.Columns.Add("Events");
         }
-        private void logEvents(string message)
+
+        public void logEvents(string message)
         {
-            string currentTime = DateTime.Now.ToString("hh:mm:ss");
-            dt.Rows.Add(currentTime, message);
-            dataGridViewLogs.Rows.Add(currentTime, message);
-
-
-            db.InsertLogsIntoDB(dt);
-        }
-
-
-        private void From1_Load(object sender, EventArgs e)
-        {
-            db.loadLogsFormDB(dt, dataGridViewLogs);
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (isOpening) {
-
-                isOpening = false;
-                isClosing = true;
-                doorTimer.Start();
-                btn_open.Enabled = false;
-                doorTimer.Tick += onDoorClose;
-                logEvents("Lift JadaiCha");
+            if (InvokeRequired)
+            {
+                Invoke(new Action<string>(logEvents), message);
             }
             else
             {
-                MoveLiftup();
+                string currentTime = DateTime.Now.ToString("hh:mm:ss");
+                dt.Rows.Add(currentTime, message);
+                datagridviewlogs.Rows.Add(currentTime, message);
+
+                dbContext.InsertLogsIntoDB(dt);
+
+                datagridviewlogs.FirstDisplayedScrollingRowIndex = datagridviewlogs.RowCount - 1;
             }
-            //isMovingUp = true;
-            //isMovingDown = false;
-            //lift.SetState(new MovingUpState);
-
-            //lifttimer.Start();
-
-            //button_g.Enabled = false;
-            //logEvents("Lift JadaiCha");
-            //btn_color1.BackColor = Color.Green;
-            //btn_colorG.BackColor = Color.Red;
-
-            //btnG2.BackColor = Color.Green;
-            //btnG1.BackColor = Color.Red;
-
-        }
-
-        private void onDoorClose(object sender, EventArgs e)
-        {
-            if (!isOpening && !isClosing)
-            {
-                MoveLiftup();
-                doorTimer.Tick += onDoorClose;
-            }
-            else
-            {
-                MoveLiftup();
-
-            }
-
-        }
-
-        private void MoveLiftup()
-        {
-            isMovingUp = true;
-            isMovingDown = false;
-            lift.SetState(new MovingUpState());
-
-            lifttimer.Start();
-
-            button_g.Enabled = false;
-
-            btn_color1.BackColor = Color.Green;
-            btn_colorG.BackColor = Color.Red;
-
-            btnG2.BackColor = Color.Green;
-            btnG1.BackColor = Color.Red;
-
-            if (isMovingUp)
-            {
-                button_up.BackColor = Color.LightGreen;
-                if (mainElevator.Top > 0)
-                {
-                    mainElevator.Top -= liftSpeed;
-
-                }
-                else
-                {
-                    lifttimer.Stop();
-                    mainElevator.Top = 0;
-                    button_g.Enabled = true;
-                }
-            }
-
-
-
-        }
-
-
-        private void button_g_Click(object sender, EventArgs e)
-        {
-            //isMovingUp = false;
-            //isMovingDown = true;
-            //lift.SetState(new MovingDownState);
-            //lifttimer.Start();
-
-            //button_up.Enabled = false;
-            //logEvents("Lift Jhardai Cha");
-
-            //btn_colorG.BackColor = Color.Green;
-            //btn_color1.BackColor = Color.Red;
-
-            //btnG1.BackColor = Color.Green;
-            //btnG2.BackColor = Color.Red;
-
-            if (isOpening)
-            {
-                isOpening = false;
-                isClosing = true;
-                doorTimer.Start();
-                btn_open.Enabled = false;
-                doorTimer.Tick += onDoorClose;
-            }
-            else
-            {
-                MoveLiftDown();
-            }
-
-
-        }
-        private void MoveLiftDown()
-        {
-            isMovingUp = false;
-            isMovingDown = true;
-            lift.SetState(new MovingDownState());
-            lifttimer.Start();
-
-            button_up.Enabled = false;
-            logEvents("Lift Jhardai Cha");
-
-            btn_colorG.BackColor = Color.Green;
-            btn_color1.BackColor = Color.Red;
-
-            btnG1.BackColor = Color.Green;
-            btnG2.BackColor = Color.Red;
-
-            if (isMovingDown)
-            {
-                button_g.BackColor = Color.LightGreen;
-                button_up.BackColor = Color.LightGreen;
-                if (mainElevator.Bottom < this.ClientSize.Height)
-                {
-                    mainElevator.Top += liftSpeed;
-
-                }
-                else
-                {
-                    lifttimer.Stop();
-
-                    button_up.Enabled = true;
-                }
-            }
-
-        }
-
-
-        private void btn_Open_Click(object sender, EventArgs e)
-        {
-            isOpening = true;
-            isClosing = false;
-            doorTimer.Start();
-            btn_Close.Enabled = false;
-            logEvents("Lift khuldai cha");
-        }
-        private void btn_Close_Click(object sender, EventArgs e)
-        {
-            isOpening = false;
-            isClosing = true;
-            doorTimer.Start();
-            btn_open.Enabled = false;
-            logEvents("lift banda hudai cha");
-
         }
 
 
 
-        private void lifttimer_Tick(object sender, EventArgs e)
+        public void btn_f_click(object sender, EventArgs e)
         {
+            lift.SetState(new MovingUpStateConcreteClass(this));
             lift.MovingUp();
+        }
+
+        public void btn_g_click(object sender, EventArgs e)
+        {
+            lift.SetState(new MovingDownStateConcreteClass(this));
             lift.MovingDown();
-            //if (isMovingUp)
-            //{
-            //    button_up.BackColor = Color.LightGreen;
-            //    if (mainElevator.Top > 0)
-            //    {
-            //        mainElevator.Top -= liftSpeed;
+        }
 
-            //    }
-            //    else
-            //    {
-            //        lifttimer.Stop();
-            //        mainElevator.Top = 0;
-            //        button_g.Enabled = true;
-            //    }
-            //}
-            //if (isMovingDown)
-            //{
-            //    button_g.BackColor = Color.LightGreen;
-            //    button_up.BackColor = Color.LightGreen;
-            //    if (mainElevator.Bottom < this.ClientSize.Height)
-            //    {
-            //        mainElevator.Top += liftSpeed;
+        private void btn_open_click(object sender, EventArgs e)
+        {
+            lift.SetState(new OpenButtonStateConcreteClass(this));
+            lift.OpenButton();
+        }
 
-            //    }
-            //    else
-            //    {
-            //        lifttimer.Stop();
+        private void btn_close_click(object sender, EventArgs e)
+        {
+            lift.SetState(new CloseButtonStateConcreteClass(this)); // Pass current instance
+            lift.CloseButton();
+        }
 
-            //        button_up.Enabled = true;
-            //    }
-            //}
+        //Timers
+        public void lift_timer_tick(object sender, EventArgs e)
+        {
+            lift.SetState(new LiftTimerStateConcreteClass(this));
+            lift.LiftTimer();
+        }
 
+        private void door_timer_tick_1(object sender, EventArgs e)
+        {
+            lift.SetState(new DoorTimer1StateConcreteClass(this));
+            lift.DoorTimer1();
+        }
+        private void door_timer_tick_2(object sender, EventArgs e)
+        {
+            lift.SetState(new DoorTimer2StateConcreteClass(this));
+            lift.DoorTimer2();
+        }
 
+        private void btn_ground_click(object sender, EventArgs e)
+        {
+            lift.SetState(new MovingDownStateConcreteClass(this));
+            lift.MovingDown();
+        }
+
+        private void btn_first_click(object sender, EventArgs e)
+        {
+            lift.SetState(new MovingUpStateConcreteClass(this));
+            lift.MovingDown();
 
         }
 
-        private void doorTimer_Tick(object sender, EventArgs e)
+        public void delete_data_click(object sender, EventArgs e)
         {
-
-            if (mainElevator.Top != 0)
-            {
-                if (isOpening)
-                {
-                    if (doorleft_G.Left > doorMaxOpenWidth /2+80)
-                    {
-                        doorleft_G.Left -= doorSpeed;
-                        doorright_G.Left += doorSpeed;
-                    }
-                    else
-                    {
-                        doorTimer.Stop();
-                        btn_Close.Enabled = true;
-                    }
-
-
-                }
-
-                if (isClosing)
-                {
-                    if (doorleft_G.Right < mainElevator.Width + doorMaxOpenWidth / 2)
-                    {
-                        doorleft_G.Left += doorSpeed;
-                        doorright_G.Left -= doorSpeed;
-                    }
-                    else
-                    {
-                        doorTimer.Stop();
-                        btn_open.Enabled = true;
-                    }
-                }
-            }
-
-            //if(isWaitingForMove)
-            //{
-            //    isWaitingForMove = false;
-            //    if(moveUpAfterClose)
-            //    {
-            //        StartMovingUp();
-            //        moveUpAfterClose = false;
-            //    }
-            //    else
-            //    if(moveDownAfterClose)
-            //    {
-            //        StartMovingDown();
-            //        moveUpAfterClose= false;
-
-            //    }
-            //}
-            else
-            {
-                if (isOpening)
-                {
-                    if (doorleft1.Left > mainElevator.Width / 2+60)
-                    {
-                        doorleft1.Left -= doorSpeed;
-                        doorright1.Left += doorSpeed;
-                    }
-                    else
-                    {
-                        doorTimer.Stop();
-                        btn_Close.Enabled = true;
-                    }
-
-
-                }
-
-                if (isClosing)
-                {
-                    if (doorleft1.Right < mainElevator.Width + doorMaxOpenWidth / 2)
-                    {
-                        doorleft1.Left += doorSpeed;
-                        doorright1.Left -= doorSpeed;
-                    }
-                    else
-                    {
-                        doorTimer.Stop();
-                        btn_open.Enabled = true;
-                    }
-                }
-
-            }
-
-
-
+            dbContext.truncateLogsTable(datagridviewlogs);
         }
 
-
-        private void doorleft_G_Click(object sender, EventArgs e)
+        private void close_click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
-        private void btn_Exit_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            db.DeleteLogFromDB(dt);
-            dataGridViewLogs.Rows.Clear();
-        }
-
-
-        private void EmergencyAlarm_Click(object sender, EventArgs e)
-        {
-            if (!_emergencyAlarm.IsActive)
-            {
-                _emergencyAlarm.Activate();
-
-                logEvents("Alarm is on");
-            }
-            else
-            {
-                _emergencyAlarm.Deactivate();
-                logEvents("Alarm is off");
-            }
+            dbContext.loadLogsFormDB(dt, datagridviewlogs);
 
         }
     }
-
 }

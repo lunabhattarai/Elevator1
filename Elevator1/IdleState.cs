@@ -4,19 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lift___sir
+namespace Elevator1
 {
-    internal class IdleState : ILiftState
+    internal class IdleStateConcreteClass : ILiftState
     {
-        public void MovingDown(lift lift)
+        public void CloseButton(Lift lift)
         {
-
-            /* Do Nothing */
         }
 
-        public void MovingUp(lift lift)
+        public void OpenButton(Lift lift)
         {
-            /* Do Nothing */
+        }
+
+        public void MovingUp(Lift lift)
+        {
+        }
+
+        public void MovingDown(Lift lift)
+        {
+        }
+
+
+        public void LiftTimer(Lift lift)
+        {
+        }
+
+        public void DoorTimer1(Lift lift)
+        {
+        }
+
+        public void DoorTimer2(Lift lift)
+        {
         }
     }
 }

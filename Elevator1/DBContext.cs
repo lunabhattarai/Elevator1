@@ -68,24 +68,25 @@ namespace Elevator1
             }
         }
 
-        public void DeleteLogFromDB(DataTable dt)
+        public void truncateLogsTable(DataGridView dataGridView1)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connecting))
                 {
-                    string query = @"DELETE FROM Log_2";
+                    string query = @"TRUNCATE TABLE Logs";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         conn.Open();
                         cmd.ExecuteNonQuery();
+                        dataGridView1.Rows.Clear();
+                        MessageBox.Show("Logs table has been truncated.");
                     }
-
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error deleting log from DB: " + ex.Message);
+                MessageBox.Show("Error truncating Logs table: " + ex.Message);
             }
         }
     }
